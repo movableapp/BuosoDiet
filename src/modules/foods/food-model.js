@@ -40,7 +40,8 @@ var foodModel = {
         this.settingsSubscription.dispose();
     },
     log: function(qt) {
-        logs.add(this, 1);
+        var units = qt / this.amountPerUnit;
+        logs.add(this, units);
     }
 };
 
