@@ -314,7 +314,12 @@ module.exports = [{
     "u" : "g",
     "a" : "60"
 },{
-    "n" : "Bread - integral",
+    "n" : "Vegetables",
+    "c" : "ve",
+    "u" : "g",
+    "a" : "700"
+},{
+    "n" : "Bread (integral)",
     "c" : "fa",
     "u" : "g",
     "a" : "60"
