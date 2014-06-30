@@ -1,4 +1,6 @@
 
+var popupUi = require('popup-ui');
+
 var foodViewModel = {
     init: function(foodModel) {
         this.model = foodModel;
@@ -39,7 +41,11 @@ var foodViewModel = {
         this.availableQt(this.model.availableQt);
     },
     addLog: function() {
-        this.model.log(1);
+        var self = this;
+        popupUi.show(this.model, function(qt) {
+            self.model.log(qt);
+            popupUi.hide();
+        });
     }
 };
 
