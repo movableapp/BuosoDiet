@@ -1,0 +1,25 @@
+<div class="popup">
+    
+    <h3 data-bind="text:name"></h3>
+    
+    <p>
+        UnitQt: <span data-bind="text:unitQt"></span>
+    </p>
+    <p>
+        DailyQt: <span data-bind="text:dailyQt"></span>
+    </p>
+    <p>
+        AvailableQt: <span data-bind="text:availableQt"></span>
+    </p>
+    
+    <p>
+        Log amount: <input type="text" data-bind="value:inputQt, valueUpdate: 'keyup'">    
+    </p>
+    
+    <p>
+        AfterQt: <span data-bind="text:afterQt"></span>
+    </p>
+    
+    <input type="button" data-bind="click:save" value="Add Log">
+    
+</div>
