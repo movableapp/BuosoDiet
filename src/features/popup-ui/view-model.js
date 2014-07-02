@@ -20,7 +20,7 @@ var logInputViewModel = {
         }, this);
         
         this.inputUnits = ko.computed(function() {
-            return round(this.inputQt() / this.unitQt());
+            return round(this.inputQt() / this.unitQt(), true);
         }, this);
         
         this.displayUnitQt = ko.computed(function() {
@@ -46,6 +46,13 @@ var logInputViewModel = {
         this.foodModelSubscription.dispose();
         this.afterQt.dispose();
         this.inputUnits.dispose();
+        this.afterQt.dispose();
+        this.inputUnits.dispose();
+        this.displayUnitQt.dispose();
+        this.displayUnitQt.dispose();
+        this.displayDailyQt.dispose();
+        this.displayAvailableQt.dispose();
+        this.displayAfterQt.dispose();
     },
     update: function() {
         this.unitQt(this.foodModel.amountPerUnit);
@@ -68,10 +75,14 @@ module.exports = function(foodModel, callback) {
     return _;
 };
 
-function round(num) {
+function round(num, decimals) {
     if (isNaN(num)) {
         return 0;
     }
-    return Math.round(num);
+    if (decimals === true) {
+        return Math.round(num * 100) / 100;
+    } else {
+        return Math.round(num);
+    }
 }
 

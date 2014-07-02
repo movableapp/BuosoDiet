@@ -29,8 +29,8 @@ exports.init = function() {
 
 exports.getAll = repository.getLogs.bind(repository);
 
-exports.add = function(food, qt) {
-    pushLog(this, logModel.createFromModel(food, qt));
+exports.add = function(food, units, qt) {
+    pushLog(this, logModel.createFromModel(food, units, qt));
     storage.save(repository.serialize());
 };
 
@@ -62,7 +62,7 @@ function updateCategoryById(categoryId) {
     var amounts = repository.getLogs().filter(function(log) {
         return log.getCategoryName() === categoryId;
     }).forEach(function(log) {
-        categories[categoryId] += log.qt;
+        categories[categoryId] += log.units;
     });
     return categories[categoryId];
 };

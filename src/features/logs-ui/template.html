@@ -1,8 +1,9 @@
 <div>
     <ul data-bind="foreach:items">
         <li>
-            <b data-bind="text:name"></b>
-            <span data-bind="text:qt"></span>
+            <b data-bind="text:name"></b><br>
+            qt: <span data-bind="text:qt"></span>, 
+            unit: <span data-bind="text:units"></span>
         </li>
     </ul>
     <button data-bind="click:reset">reset logs</button>

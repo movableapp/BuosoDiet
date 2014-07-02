@@ -1,5 +1,6 @@
 
 var logs = require('logs');
+var createLogViewModel = require('./log-view-model');
 
 var logsViewModel = {
     init: function() {
@@ -10,11 +11,14 @@ var logsViewModel = {
     },
     dispose: function() {
         this.resetSubscription.dispose();
+        this.items().forEach(function(item) {
+            item.dispose();
+        });
     },
     populate: function() {
         var items = this.items();
         logs.getAll().forEach(function(log) {
-            items.push(log);
+            items.push(createLogViewModel(log));
         });
         this.items.valueHasMutated();
     },
@@ -25,7 +29,7 @@ var logsViewModel = {
 };
 
 module.exports = function() {
-    var _ = Object.create(logsViewModel);
-    _.init();
-    return _;
+    var instance = Object.create(logsViewModel);
+    instance.init();
+    return instance;
 };

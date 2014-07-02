@@ -1,9 +1,11 @@
 
 var logModel = {
-    init: function(foodName, categoryId, qt) {
-        this.name = foodName;
-        this.category = categoryId;
-        this.qt = qt;
+    init: function(data) {
+        this.name = data.name;
+        this.category = data.category;
+        this.units = data.units;
+        this.qt = data.qt;
+        this.unit = data.unit;
     },
     dispose: function() {},
     getCategoryName: function() {
@@ -11,21 +13,29 @@ var logModel = {
     },
     getData: function() {
         return {
-            n: this.name,
-            c: this.category,
-            q: this.qt
+            name: this.name,
+            category: this.category,
+            units: this.units,
+            qt: this.qt,
+            unit: this.unit
         };
     }
 };
 
-exports.createFromModel = function(food, qt) {
-    var _ = Object.create(logModel);
-    _.init(food.name, food.categoryId, qt);
-    return _;
+exports.createFromModel = function(food, units, qt) {
+    var instance = Object.create(logModel);
+    instance.init({
+        name: food.name, 
+        category: food.categoryId, 
+        units: units, 
+        qt: qt,
+        unit: food.unit
+    });
+    return instance;
 };
 
 exports.createFromData = function(data) {
-    var _ = Object.create(logModel);
-    _.init(data.n, data.c, data.q);
-    return _;
+    var instance = Object.create(logModel);
+    instance.init(data);
+    return instance;
 };

@@ -41,7 +41,7 @@ var foodModel = {
     },
     log: function(qt) {
         var units = qt / this.amountPerUnit;
-        logs.add(this, units);
+        logs.add(this, units, qt);
     }
 };
 
