@@ -11,15 +11,15 @@ var foodViewModel = {
         this.availableQt = ko.observable();
         
         this.displayUnitQt = ko.computed(function() {
-            return this.unitQt() + this.model.unit;
+            return round(this.unitQt()) + this.model.unit;
         }, this);
         
         this.displayDailyQt = ko.computed(function() {
-            return this.dailyQt() + this.model.unit;
+            return round(this.dailyQt()) + this.model.unit;
         }, this);
         
         this.displayAvailableQt = ko.computed(function() {
-            return this.availableQt() + this.model.unit;
+            return round(this.availableQt()) + this.model.unit;
         }, this);
         
         this.updateUnits();
@@ -55,3 +55,11 @@ module.exports = function(foodModel) {
     _.init(foodModel);
     return _;
 };
+
+function round(num) {
+    if (isNaN(num)) {
+        return 0;
+    }
+    return Math.round(num);
+}
+

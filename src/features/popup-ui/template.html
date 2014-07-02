@@ -3,13 +3,13 @@
     <h3 data-bind="text:name"></h3>
     
     <p>
-        UnitQt: <span data-bind="text:unitQt"></span>
+        UnitQt: <span data-bind="text:displayUnitQt"></span>
     </p>
     <p>
-        DailyQt: <span data-bind="text:dailyQt"></span>
+        DailyQt: <span data-bind="text:displayDailyQt"></span>
     </p>
     <p>
-        AvailableQt: <span data-bind="text:availableQt"></span>
+        AvailableQt: <span data-bind="text:displayAvailableQt"></span>
     </p>
     
     <p>
@@ -17,9 +17,14 @@
     </p>
     
     <p>
-        AfterQt: <span data-bind="text:afterQt"></span>
+        Input Units: <span data-bind="text:inputUnits"></span>
+    </p>
+    
+    <p>
+        AfterQt: <span data-bind="text:displayAfterQt"></span>
     </p>
     
     <input type="button" data-bind="click:save" value="Add Log">
+    <input type="button" data-bind="click:cancel" value="Cancel">
     
 </div>
