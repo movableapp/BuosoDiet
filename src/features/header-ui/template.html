@@ -1,4 +1,9 @@
-<div>
-    <a id="back-btn" data-bind="if:goBackEnabled, click:goBack">back</a>
+<div id="header-inner" data-bind="css: {active:isActive}">
+    <!-- ko if:lbEnabled -->
+    <a data-bind="html:lbShow, fastclick:lbClick" class="left-btn"></a>
+    <!-- /ko -->
     <h1 data-bind="text:title"></h1>
+    <!-- ko if:rbEnabled -->
+    <a data-bind="html:rbShow, fastclick:rbClick" class="right-btn"></a>
+    <!-- /ko -->
 </div>

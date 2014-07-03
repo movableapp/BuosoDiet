@@ -9,7 +9,14 @@ var template = require('./template.html');
 
 exports.init = function(config) {
     router.on('/settings', function() {
-        headerUi.setTitle('Settings');
+        headerUi.reset({
+            title: 'Settings',
+            leftBtn: {
+                show: '&laquo; Back',
+                url: '/'
+            },
+            rightBtn: false
+        });
         layoutEngine.render(template, viewModel());
     });
 };

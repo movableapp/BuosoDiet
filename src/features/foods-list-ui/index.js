@@ -10,8 +10,17 @@ var template = require('./template.html');
 
 exports.init = function(config) {
     router.on('/', function() {
-        headerUi.reset();
+        headerUi.reset({
+            title: 'BuosoDiet',
+            leftBtn: {
+                show: '<small>Settings</small>',
+                url: '/settings'
+            },
+            rightBtn: {
+                show: 'Logs',
+                url: '/logs'
+            }
+        });
         layoutEngine.render(template, viewModel());
     });
 };
-
