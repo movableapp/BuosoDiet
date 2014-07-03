@@ -11,11 +11,11 @@
     <p>
         AvailableQt: <span data-bind="text:displayAvailableQt"></span>
     </p>
-    
+    <hr>
     <p>
-        Log amount: <input type="text" data-bind="value:inputQt, valueUpdate: 'keyup'">    
+        Log amount: <input data-bind="value:inputQt, valueUpdate: 'keyup'" type="number" pattern="\d*">
     </p>
-    
+    <hr>
     <p>
         Input Units: <span data-bind="text:inputUnits"></span>
     </p>
