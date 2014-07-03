@@ -3,6 +3,12 @@ var layoutEngine = require('layout-engine');
 
 var viewModel = require('./view-model');
 var template = require('./template.html');
+var regionHandler = require('./region-handler');
+
+exports.init = function() {
+    layoutEngine.registerHandler('popup', regionHandler);
+    layoutEngine.configureRegion('popup', 'popup');
+};
 
 exports.show = function(foodModel, callback) {
     var vm = viewModel(foodModel, callback);
