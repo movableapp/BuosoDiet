@@ -1,5 +1,5 @@
-#header {
-    position: fixed;
+#header-inner {
+    position: absolute;
     top:0;
     left:0;
     
@@ -16,15 +16,24 @@
         font-family: sans-serif;
     }
     
-}
+    .left-btn, .right-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
 
-#back-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+        background: #eee;
+        border-radius: 5px;
+        line-height: 2em;
+        padding: 0 10px;
+    }
     
-    background: #eee;
-    border-radius: 5px;
-    line-height: 2em;
-    padding: 0 10px;
+    .right-btn {
+        left:auto;
+        right: 10px;
+    }
+    
+    &.active {
+        position: fixed;
+    }
+    
 }
