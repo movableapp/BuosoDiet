@@ -26,7 +26,16 @@ module.exports = function (grunt) {
 // --------------------------------------- //
     
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json')
+		pkg: grunt.file.readJSON('package.json'),
+        'workspace' : {
+            options: {
+                release: {
+                    minifyHtml: false,
+                    inline: true,
+                    manifest: true
+                }
+            }
+        }
 	});
     
     
