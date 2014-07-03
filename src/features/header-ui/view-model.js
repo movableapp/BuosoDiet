@@ -6,6 +6,7 @@ var headerViewModel = {
         var self = this;
         
         this.isActive = ko.observable(false);
+        this.isHidden = ko.observable(false);
         this.title = ko.observable();
         
         this.lbEnabled = ko.observable(false);

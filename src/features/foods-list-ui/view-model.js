@@ -1,15 +1,26 @@
 
 var foods = require('foods');
+var headerUi = require('header-ui');
 
 var createCategoryModel = require('./category-view-model');
 
 var listViewModel = {
     init: function() {
-        this.filter = ko.observable('').extend({rateLimit:1000});
+        this.filter = ko.observable('').extend({rateLimit:500});
+        this.filterIsActive = ko.observable();
+        
         this.categories = ko.observableArray();
         this.filteredCategories = ko.computed(computedFilteredCategories, this);
         this.filteredCount = ko.computed(computedFilteredCount, this);
         foods.onReady(this.populate.bind(this));
+        
+        this.filterIsActive.subscribe(function(val) {
+            if (val) {
+                headerUi.hide();
+            } else {
+                headerUi.show();
+            }
+        });
     },
     dispose: function() {
         this.categories().forEach(function(category) {

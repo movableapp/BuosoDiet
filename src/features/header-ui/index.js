@@ -17,3 +17,11 @@ exports.start = function(config) {
 exports.reset = function(config) {
     viewModel.reset(config);
 };
+
+exports.hide = function() {
+    viewModel.isHidden(true);
+};
+
+exports.show = function() {
+    viewModel.isHidden(false);
+};

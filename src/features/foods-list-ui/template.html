@@ -1,7 +1,7 @@
-<div>
+<div id="foods-view" data-bind="css: {searching:filterIsActive}">
     <p>
-        <input id="search" type="text" data-bind="value:filter,valueUpdate:'keyup'" placeholder="search foods">
-        <button class="button" data-bind="click:resetFilter">reset</button> &nbsp;
+        <input id="search" type="text" data-bind="value:filter, valueUpdate:'keyup', hasFocus:filterIsActive" placeholder="search foods">
+        <button class="button" data-bind="fastclick:resetFilter">reset</button> &nbsp;
         <small class="hidden">(<span data-bind="text:filteredCount"></span>)</small> 
     </p>
 
