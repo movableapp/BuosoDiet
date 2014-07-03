@@ -5,6 +5,8 @@
  * 
  */
 
+require('jqb-ko-fastclick');
+
 var features = [/*FEATURES*/];
 
 

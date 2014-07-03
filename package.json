@@ -32,5 +32,8 @@
     "grunt-contrib-cssmin": "~0.9.x",
     "grunt-browserify": "~2.0.x",
     "grunt-cleanempty": "~0.2.x"
+  },
+  "dependencies": {
+    "jqb-ko-fastclick": "^0.1.0"
   }
 }

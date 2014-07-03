@@ -1,28 +1,27 @@
 <div>
     <p>
-        <input type="text" data-bind="value:filter,valueUpdate:'keyup'" placeholder="search foods">
-        <button data-bind="click:resetFilter">reset</button> &nbsp;
-        <small>(<span data-bind="text:filteredCount"></span>)</small> 
+        <input id="search" type="text" data-bind="value:filter,valueUpdate:'keyup'" placeholder="search foods">
+        <button class="button" data-bind="click:resetFilter">reset</button> &nbsp;
+        <small class="hidden">(<span data-bind="text:filteredCount"></span>)</small> 
     </p>
-    
-    <hr>
-    
+
     <ul id="foods" data-bind="foreach:filteredCategories">
         <li>
-            <h2>
+            <h2 class="category-name">
                 <span data-bind="text:label"></span>
-                <small>(<span  data-bind="text:filteredCount"></span>)</small>
+                <small class="hidden">(<span  data-bind="text:filteredCount"></span>)</small>
             </h2>
             <ul data-bind="foreach:filteredFoods">
-                <h3 data-bind="text:name"></h3>
-                <p>
-                    <b data-bind="text:displayAvailableQt"></b>
-                    /
-                    <small data-bind="text:displayDailyQt"></small>
-                    /
-                    <small data-bind="text:displayUnitQt"></small>
-                </p>
-                <button data-bind="click:addLog">Log this food</button>
+                <li class="single-aliment"  data-bind="fastclick:addLog">
+                    <p>
+                        <b data-bind="text:displayAvailableQt"></b>
+                        /
+                        <small data-bind="text:displayDailyQt"></small>
+                        /
+                        <small data-bind="text:displayUnitQt"></small>
+                    </p>
+                    <h3 data-bind="text:name"></h3>
+                </li>
             </ul>
         </li>
     </ul>
