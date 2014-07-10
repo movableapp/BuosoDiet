@@ -1,6 +1,6 @@
 {
   "name": "buoso-diet",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "daily food tracker",
   "main": "Gruntfile.js",
   "keywords": [
