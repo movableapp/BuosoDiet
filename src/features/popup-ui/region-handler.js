@@ -1,3 +1,4 @@
+var popup = require('./index');
 
 var regionHandler = {
 	setup: function(root, options) {
@@ -12,7 +13,8 @@ var regionHandler = {
         // popup disposal utilities
         ko.utils.registerEventHandler(this.root, 'click', function(e) {
             if (e.toElement === self.root) {
-                self.clearRegion();
+                //self.clearRegion();
+                popup.hide();
             }
         });
         ko.utils.registerEventHandler(document.body, 'keyup', function(e) {
@@ -50,6 +52,12 @@ var regionHandler = {
 				this.previous.model.dispose();
 			}
             this.previous = null;
+            
+            // fix fixed positions after hiding the popup with soft keyboard
+            setTimeout(function() {
+                window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+            }, 0);
+            
 		}
 	},
 	setRoot: function(root) {
