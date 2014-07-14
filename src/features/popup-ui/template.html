@@ -1,30 +1,38 @@
 <div class="popup">
     
-    <h3 data-bind="text:name"></h3>
+    <div class="button-box">
+        <button class="button-log" type="button" data-bind="click:save" value="Add Log">Save Log</button>
+        <button class="button-log" type="button" data-bind="click:cancel" value="Cancel">Cancel</button>  
+    </div>
     
-    <p>
-        UnitQt: <span data-bind="text:displayUnitQt"></span>
-    </p>
-    <p>
-        DailyQt: <span data-bind="text:displayDailyQt"></span>
-    </p>
-    <p>
-        AvailableQt: <span data-bind="text:displayAvailableQt"></span>
-    </p>
-    <hr>
-    <p>
-        Log amount: <input data-bind="value:inputQt, valueUpdate: 'keyup'" type="number" pattern="\d*">
-    </p>
-    <hr>
-    <p>
-        Input Units: <span data-bind="text:inputUnits"></span>
-    </p>
+    <div>
+        <input data-bind="value:inputQt, valueUpdate: 'keyup'" type="number" pattern="\d*">
+        <h3 data-bind="text:name"></h3>
+    </div>
+
+    <div class="informations-box">
+        <div class="informations">
+            <p>
+                UnitQt: <span data-bind="text:displayUnitQt"></span>
+            </p>
+            <p>
+                DailyQt: <span data-bind="text:displayDailyQt"></span>
+            </p>
+            <p>
+                AvailableQt: <span data-bind="text:displayAvailableQt"></span>
+            </p>
+        </div>
+
+        <div class="informations">
+            <p>
+                Input Units: <span data-bind="text:inputUnits"></span>
+            </p>
+
+            <p>
+                AfterQt: <span data-bind="text:displayAfterQt"></span>
+            </p>
+        </div>
+    </div>
     
-    <p>
-        AfterQt: <span data-bind="text:displayAfterQt"></span>
-    </p>
-    
-    <button class="button green" type="button" data-bind="click:save" value="Add Log">Save Log</button>
-    <button class="button red" type="button" data-bind="click:cancel" value="Cancel">Cancel</button>
     
 </div>
