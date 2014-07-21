@@ -1,10 +1,18 @@
-<div style="margin-top:70px">
+<div style="margin-top:60px">
+  
     <ul data-bind="foreach:items">
-        <li>
-            <b data-bind="text:name"></b><br>
-            qt: <span data-bind="text:qt"></span>, 
-            unit: <span data-bind="text:units"></span>
+        <li class="clearfix separator">
+            <h3 class="left" data-bind="text:name"></h3>
+            <div class="quantity-log right">
+                <p class="left">Qnt: <span data-bind="text:qt"></span></p>
+                <p class="left">Unt: <span data-bind="text:units"></span></p>
+            </div>
         </li>
     </ul>
-    <button data-bind="fastclick:reset">reset logs</button>
+    
+    
+    <div class="clearfix">
+        <button class="right reset-button" data-bind="fastclick:reset">reset</button>
+    </div>
+    
 </div>
