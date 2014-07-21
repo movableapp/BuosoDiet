@@ -1,7 +1,7 @@
-<div style="margin-top:70px">
+<div style="margin-top:60px">
   
     <ul data-bind="foreach:items">
-        <li class="clearfix">
+        <li class="clearfix separator">
             <h3 class="left" data-bind="text:name"></h3>
             <div class="quantity-log right">
                 <p class="left">Qnt: <span data-bind="text:qt"></span></p>
@@ -9,6 +9,7 @@
             </div>
         </li>
     </ul>
+    
     
     <div class="clearfix">
         <button class="right reset-button" data-bind="fastclick:reset">reset</button>
