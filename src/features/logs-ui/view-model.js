@@ -1,13 +1,19 @@
 
 var logs = require('logs');
+var settings = require('settings');
+var foods = require('foods');
+
 var createLogViewModel = require('./log-view-model');
 
 var logsViewModel = {
     init: function() {
         this.items = ko.observableArray();
         
+        initAvailableUnits(this);
+        
         logs.onReady(this.populate.bind(this));
         this.resetSubscription = logs.subscribe('reset', this.populate.bind(this));
+        
     },
     dispose: function() {
         this.resetSubscription.dispose();
@@ -27,6 +33,59 @@ var logsViewModel = {
         logs.reset();
     }
 };
+
+function initAvailableUnits(vm) {
+    
+    vm.categories = ko.observableArray();
+    
+    foods.getCategoryIds().forEach(function(category) {
+        vm[category] = ko.observable({
+            id: category,
+            label: foods.getCategoryLabel(category),
+            units: 0,
+            logged: 0,
+            available: 0,
+            progress: 0
+        });
+        vm.categories.push(vm[category]);
+    });
+    
+    settings.onReady(function() { logs.onReady(function() {
+        foods.getCategoryIds().forEach(function(category) {
+            var data = vm[category]();
+            data.units = settings.getDailyUnitsByCategoryId(category);
+            data.logged = logs.getUnitsByCategoryId(category);
+            data.available = data.units - data.logged;
+            data.progress = data.logged / data.units * 100;
+            
+            data.logged = roundDec(data.logged);
+            data.available = roundDec(data.available);
+            data.progress = round(data.progress);
+            vm[category](data);
+        });
+    }.bind(this));}.bind(this));
+    
+}
+
+function round(num) {
+    if (isNaN(num)) {
+        return 0;
+    }
+    if (num < 0) {
+        return 0;
+    }
+    return Math.round(num);
+}
+
+function roundDec(num) {
+    if (isNaN(num)) {
+        return 0;
+    }
+    if (num < 0) {
+        return 0;
+    }
+    return Math.round(num*10)/10;
+}
 
 module.exports = function() {
     var instance = Object.create(logsViewModel);
