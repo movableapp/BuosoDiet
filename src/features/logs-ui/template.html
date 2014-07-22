@@ -2,11 +2,15 @@
      
     <ul data-bind="foreach:categories">
         <li data-bind="if:$data.progress">
-            <b data-bind="text:$data.label">Farinacei:</b>
-            total: <span data-bind="text:$data.units"></span>,
-            logged: <span data-bind="text:$data.logged"></span>,
-            available: <span data-bind="text:$data.available"></span>,
-            progress: <span data-bind="text:$data.progress"></span>%,    
+            <h3 data-bind="text:$data.label">Farinacei:</h3>
+            <p style="margin: 5px 10px">
+                total: <span data-bind="text:$data.units"></span><br>
+                logged: <span data-bind="text:$data.logged"></span><br>
+                available: <span data-bind="text:$data.available"></span><br>
+                progress: <span data-bind="text:$data.progress"></span>%<br>
+                usage: <span data-bind="text:$data.usage"></span>%
+            </p>
+            <hr>
         </li>
     </ul>
   

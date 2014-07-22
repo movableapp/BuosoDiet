@@ -9,7 +9,17 @@
         <li>
             <h2 class="category-name">
                 <span data-bind="text:label"></span>
-                <small class="hidden">(<span  data-bind="text:filteredCount"></span>)</small>
+                <div>
+                    <small>U:</small> <span data-bind="text:units"></span>
+                    &nbsp;&nbsp;&nbsp;
+                    <small>L:</small> <span data-bind="text:logged"></span>
+                    &nbsp;&nbsp;&nbsp;
+                    <small>A:</small> <span data-bind="text:available"></span>
+                    &nbsp;&nbsp;&nbsp;
+                    <small>P:</small> <span data-bind="text:progress"></span>%
+                    &nbsp;&nbsp;&nbsp;
+                    <small>U:</small> <span data-bind="text:usage"></span>%
+                </div>
             </h2>
             <ul data-bind="foreach:filteredFoods">
                 <li class="single-aliment"  data-bind="fastclick:addLog">
